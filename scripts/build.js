@@ -61,22 +61,17 @@ const result = await Promise.allSettled([
     'public/github-markdown.min.css',
     (uint8array) => {
       return new TextEncoder().encode(
-        new TextDecoder().decode(uint8array)
+        new TextDecoder()
+          .decode(uint8array)
           .replace('@media (prefers-color-scheme:dark)', '[data-theme=dark]')
           .replace('@media (prefers-color-scheme:light)', '[data-theme=light]'),
       );
     },
   ),
 
-  download(
-    'https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js',
-    'public/mermaid.min.js',
-  ),
+  download('https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.js', 'public/mermaid.min.js'),
 
-  download(
-    'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css',
-    'public/katex.min.css',
-  ),
+  download('https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css', 'public/katex.min.css'),
 
   ...[
     'KaTeX_AMS-Regular.woff2',
@@ -103,7 +98,7 @@ const result = await Promise.allSettled([
     download(
       `https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/fonts/${font}`,
       `public/fonts/${font}`,
-    )
+    ),
   ),
 ]);
 
