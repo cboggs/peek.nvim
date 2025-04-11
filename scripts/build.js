@@ -69,10 +69,7 @@ const result = await Promise.allSettled([
     },
   ),
 
-  download(
-    'https://cdn.jsdelivr.net/npm/mermaid@11.5.0/dist/mermaid.min.js',
-    'public/mermaid.min.js',
-  ),
+  download('https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.js', 'public/mermaid.min.js'),
 
   download('https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css', 'public/katex.min.css'),
 
